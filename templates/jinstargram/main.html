@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Djongo_insta</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet"
@@ -71,17 +71,23 @@
     </div>
 
 </nav>
-
+{#피드 데이터#}
 <div style="display: flex; flex-direction: row;  justify-content: center; padding-top: 120px; background-color: #f5f1f1; height: 2500px">
+    {#        피드박스#}
+
     <div style="width: 650px; height:1000px  ; margin-right: 15.5%; " class="left_content">
+    <div style="display: flex; flex-direction: column">
+    {% for feed in feeds %}
+
+
         <div style="border: 1px solid grey; background-color: #fafafa; padding: 18px ">
             <div style="display: flex; flex-direction: row; align-items: center;">
-                <img src="https://item.kakaocdn.net/do/d0f10bc52c1b988e9a6e224b1c02bd499f5287469802eca457586a25a096fd31"
+                <img src="{{ feed.profile_image }}"
                      class="rounded-circle" alt="프사">
-                <div style="margin-left: 5px">죠르죠르디</div>
+                <div style="margin-left: 5px">{{ feed.user_id }}</div>
             </div>
             <div><img style="width: 100%; height: auto; object-fit: cover;"
-                      src="https://cdn.pixabay.com/photo/2017/05/10/15/05/himalayas-2301040_1280.jpg"></div>
+                      src="{{ feed.image }}"></div>
             <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px">
                 <div>
                     <span class="material-symbols-outlined">favorite</span>
@@ -96,79 +102,23 @@ send
                     <div><span class="material-symbols-outlined">bookmark</span></div>
                 </div>
             </div>
-            <div>죠르디 <b>외 20명</b>이 좋아합니다.</div>
-            <div><b>죠르죠르디</b> 실제로 가보고 싶어요</div>
+            <div>죠르디 <b>외 {{ feed.like_count }}명</b>이 좋아합니다.</div>
+            <div><b>{{ feed.user_id }}</b> {{ feed.content }}</div>
             <div style="font-size: 15px"><b>춘식이</b> 저기가 어디??</div>
             <div style="font-size: 15px"><b>콘</b> 나도 가고 싶어요ㅠㅠㅠ</div>
             <hr/>
             <div style="margin-top: 10px"><input style="box-shadow: none;" type="text" class="form-control"
                                                  id="exampleFormControlInput1" placeholder="댓글 달기..."></div>
         </div>
+
         <br/>
         <br/>
-        <div style="border: 1px solid grey; padding: 18px ">
-            <div style="display: flex; flex-direction: row; align-items: center;">
-                <img src="https://item.kakaocdn.net/do/d0f10bc52c1b988e9a6e224b1c02bd499f5287469802eca457586a25a096fd31"
-                     class="rounded-circle" alt="프사">
-                <div style="margin-left: 5px">죠르죠르디</div>
-            </div>
-            <div><img style="width: 100%; height: auto; object-fit: cover;"
-                      src="https://cdn.pixabay.com/photo/2017/05/10/15/05/himalayas-2301040_1280.jpg"></div>
-            <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px">
-                <div>
-                    <span class="material-symbols-outlined">favorite</span>
-                    <span class="material-symbols-outlined">
-chat_bubble
-</span>
-                    <span class="material-symbols-outlined">
-send
-</span>
-                </div>
-                <div>
-                    <div><span class="material-symbols-outlined">bookmark</span></div>
-                </div>
-            </div>
-            <div>죠르디 <b>외 20명</b>이 좋아합니다.</div>
-            <div><b>죠르죠르디</b> 실제로 가보고 싶어요</div>
-            <div style="font-size: 15px"><b>춘식이</b> 저기가 어디??</div>
-            <div style="font-size: 15px"><b>콘</b> 나도 가고 싶어요ㅠㅠㅠ</div>
-            <hr/>
-            <div style="margin-top: 10px"><input style="box-shadow: none;" type="text" class="form-control"
-                                                 id="exampleFormControlInput1" placeholder="댓글 달기..."></div>
-        </div>
-        <br/>
-        <br/>
-        <div style="border: 1px solid grey; padding: 18px ">
-            <div style="display: flex; flex-direction: row; align-items: center;">
-                <img src="https://item.kakaocdn.net/do/d0f10bc52c1b988e9a6e224b1c02bd499f5287469802eca457586a25a096fd31"
-                     class="rounded-circle" alt="프사">
-                <div style="margin-left: 5px">죠르죠르디</div>
-            </div>
-            <div><img style="width: 100%; height: auto; object-fit: cover;"
-                      src="https://cdn.pixabay.com/photo/2017/05/10/15/05/himalayas-2301040_1280.jpg"></div>
-            <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px">
-                <div>
-                    <span class="material-symbols-outlined">favorite</span>
-                    <span class="material-symbols-outlined">
-chat_bubble
-</span>
-                    <span class="material-symbols-outlined">
-send
-</span>
-                </div>
-                <div>
-                    <div><span class="material-symbols-outlined">bookmark</span></div>
-                </div>
-            </div>
-            <div>죠르디 <b>외 20명</b>이 좋아합니다.</div>
-            <div><b>죠르죠르디</b> 실제로 가보고 싶어요</div>
-            <div style="font-size: 15px"><b>춘식이</b> 저기가 어디??</div>
-            <div style="font-size: 15px"><b>콘</b> 나도 가고 싶어요ㅠㅠㅠ</div>
-            <hr/>
-            <div style="margin-top: 10px"><input style="box-shadow: none;" type="text" class="form-control"
-                                                 id="exampleFormControlInput1" placeholder="댓글 달기..."></div>
-        </div>
+
+
+    {% endfor %}
     </div>
+    </div>
+{#    피드박스 끝#}
     <div style="width: 400px; height:1000px;  position: fixed; left: 65%;">
         <div style="display: flex; flex-direction: row; justify-content: space-between">
             <div class="right" style="display: flex; flex-direction: row">
