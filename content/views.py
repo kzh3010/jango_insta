@@ -6,13 +6,22 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from Jinstargram.settings import MEDIA_ROOT
+from user.models import User
 from .models import Feed
 
 class Main(APIView):
+
     def get(self, request):
         feed_list = Feed.objects.all().order_by('-id') # 피드에 있는 모든 데이터를 가지고 오겠다.
+        print('로그인 한 사용자는 :', request.session['email'])
+        email =request.session['email']
+        if email is None :
+            return render(request, "user/login.html")
+        user = User.objects.filter(email=email).first()
 
-        return render(request, "jinstargram/main.html",context=dict(feeds=feed_list))
+        if user is None :
+            return render(request, "user/login.html")
+        return render(request, "jinstargram/main.html",context=dict(feeds=feed_list, user=user))
 
 class UploadFeed(APIView) :
     def post(self, request):

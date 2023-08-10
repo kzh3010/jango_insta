@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
-from .views import Sub
-from content.views import Main,UploadFeed
+from django.urls import path, include
+
+from content.views import Main
 from .settings import MEDIA_URL, MEDIA_ROOT
 
 urlpatterns = [
@@ -25,7 +25,8 @@ urlpatterns = [
     # path('main/', Sub.as_view()) # 빈 경로면 views.py의 Sub에 있는 것을 화면에 보여주겠다(as_view())
     path('main/', Main.as_view()),
 #     views의 UploadFeed가 url과 매핑이 되야 한다. main.html에 보낸 url과
-    path('content/upload/', UploadFeed.as_view())
+    path('content/',include('content.urls')),
+    path('user/',include('user.urls'))
 ]
 
 

@@ -83,6 +83,13 @@
     </style>
 </head>
 <body>
+<div>
+    {{ user.email }}
+    {{ user.nickname }}
+    {{ user.name }}
+    {{ user.profile_image }}
+
+</div>
 <nav style="height: 60px; position: fixed; width: 100%; align-items: center;"
      class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid"
@@ -167,8 +174,8 @@ send
                 <img src="https://item.kakaocdn.net/do/d0f10bc52c1b988e9a6e224b1c02bd499f5287469802eca457586a25a096fd31"
                      class="rounded-circle" alt="프사">
                 <div style="margin:10px 10px">
-                    <div style="margin-left: 5px; font-weight: bold">죠르죠르디</div>
-                    <div style="margin-left: 5px; font-size: 13px ">카카오 죠르디</div>
+                    <div style="margin-left: 5px; font-weight: bold">{{ user.nickname }}</div>
+                    <div style="margin-left: 5px; font-size: 13px ">{{ user.name }}</div>
                 </div>
             </div>
             <div style="justify-content: right; margin:15px 10px; color: dodgerblue ; font-weight: bold;font-size: 13px;">
